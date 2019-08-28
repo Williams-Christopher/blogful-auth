@@ -156,11 +156,10 @@ describe('Articles Endpoints', function () {
 
   describe(`GET /api/articles/:article_id/comments`, () => {
     context(`Given no articles`, () => {
-      beforeEach(() => {
-        console.log('beforeEach 2')
-        // return db.into('blogful_users').insert(testUsers)
-        return helpers.seedUsers(db, testUsers);
-      })
+      beforeEach(() => 
+        helpers.seedUsers(db, testUsers)
+      )
+
       it(`responds with 404`, () => {
         const articleId = 123456
         return supertest(app)
